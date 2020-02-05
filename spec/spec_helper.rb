@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
 require "bundler/setup"
+require "rspec"
+require "rspec/core/profiler"
 require "shoulda/matchers/uuid"
 
 RSpec.configure do |config|

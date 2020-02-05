@@ -1,6 +1,8 @@
 # shoulda-matchers-uuid
 
-The shoulda-matchers gem does not currently support MYSQL uuid columns.  This extends it to allow validating uuids in models. [See current PR to fix](https://github.com/thoughtbot/shoulda-matchers/pull/1159)
+This is a patch to shoulda-matchers that allows the uniqueness validation matchers to work with MySQL UUIDs.  The current shoulda-matchers gem incorrectly increments UUID values when they are set as `binary` types (when using the [mysql-binuuid-rails gem](https://github.com/nedap/mysql-binuuid-rails)).
+
+We have [an existing open PR](https://github.com/thoughtbot/shoulda-matchers/pull/1159) that is likely not going to make it through.
 
 ## Installation
 
@@ -17,6 +19,10 @@ And then execute:
 Or install it yourself as:
 
     $ gem install shoulda-matchers-uuid
+
+## Usage
+
+That's it!  Use shoulda-matchers as usual to validate uniqueness of UUIDs.
 
 ## Development
 
