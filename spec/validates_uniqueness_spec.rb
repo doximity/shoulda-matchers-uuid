@@ -46,11 +46,11 @@ RSpec.describe User, type: :model do
   end
 
   it "correctly validates uniqueness of uuid values" do
-    expect(User.new(uuid: formerly_failing_uuid)).to validate_uniqueness_of(:uuid).ignoring_case_sensitivity
+    expect(described_class.new(uuid: formerly_failing_uuid)).to validate_uniqueness_of(:uuid).ignoring_case_sensitivity
   end
 
   it "correctly validates uniqueness of scoped uuid values" do
-    expect(User.new(uuid: formerly_failing_uuid, name: "Shenanigans")).
+    expect(described_class.new(uuid: formerly_failing_uuid, name: "Shenanigans")).
       to validate_uniqueness_of(:name).
       scoped_to(:uuid).ignoring_case_sensitivity
   end

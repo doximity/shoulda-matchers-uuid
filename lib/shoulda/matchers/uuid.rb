@@ -41,4 +41,4 @@ module ShouldaMatchersMysqlUuidFix
   end
 end
 
-Shoulda::Matchers::ActiveRecord::ValidateUniquenessOfMatcher.public_send(:include, ShouldaMatchersMysqlUuidFix)
+Shoulda::Matchers::ActiveRecord::ValidateUniquenessOfMatcher.include ShouldaMatchersMysqlUuidFix
