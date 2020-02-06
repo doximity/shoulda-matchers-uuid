@@ -1,0 +1,75 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  Exclude:
+    - "./vendor/**/*"
+  TargetRubyVersion: 2.6
+
+Layout/DotPosition:
+  EnforcedStyle: trailing
+  Enabled: true
+Layout/LineLength:
+  Max: 120
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - ./**/*_spec.rb
+Lint/UselessAccessModifier:
+  ContextCreatingMethods:
+    - concerning
+
+Metrics/AbcSize:
+  Max: 20
+Metrics/BlockLength:
+  Exclude:
+    - "./**/*_spec*.rb"
+    - "./*.gemspec"
+    - "./spec/*_helper*.rb"
+    - "./tasks/ci.rake"
+    - "./lib/tasks/**/*.rake"
+    - "Gemfile"
+Metrics/CyclomaticComplexity:
+  Max: 7
+Metrics/ModuleLength:
+  Exclude:
+    - "./**/*_spec*.rb"
+Metrics/MethodLength:
+  Max: 20
+  Exclude:
+    - "./**/*_spec*.rb"
+Metrics/PerceivedComplexity:
+  Max: 8
+
+RSpec/BeforeAfterAll:
+  Enabled: false
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/IteratedExpectation:
+  Enabled: false
+RSpec/FilePath:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
+
+Rails/ApplicationRecord:
+  Enabled: false
+
+Security/YAMLLoad:
+  AutoCorrect: false
+
+Style/Documentation:
+  Enabled: false
+Style/FormatStringToken:
+  EnforcedStyle: template
+Style/LambdaCall:
+  Enabled: false
+Style/NumericLiterals:
+  Enabled: false
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+  ConsistentQuotesInMultiline: true
+  Enabled: true
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
