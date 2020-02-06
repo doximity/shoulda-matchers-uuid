@@ -3,7 +3,7 @@
 module Shoulda
   module Matchers
     module Uuid
-      VERSION = "0.1.1.valentino"
+      VERSION = "0.1.1.vstoll"
     end
   end
 end
