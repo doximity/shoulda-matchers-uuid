@@ -10,6 +10,7 @@ executors:
       - image: circleci/ruby:2.6
         environment:
           BUNDLE_VERSION: "~> 1.17"
+    - image: circleci/mysql:5.6
 
 # yaml anchor filters
 master_only: &master_only
@@ -51,8 +52,19 @@ jobs:
           paths:
             - vendor/bundle
       - run:
+          name: Load mysql database from workspace
+          command: |
+            apt-get update -qq && apt-get install -y --no-install-recommends mysql-client
+            until `nc -z 127.0.0.1 3306`; do
+            echo 'Waiting for MySQL container...'
+              sleep 1
+            done
+            echo 'MySQL container is up'
+      - run:
           name: Run Tests
           command: bundle exec rake ci:specs
+          environment:
+            DATABASE_URL: mysql2://127.0.0.1:3306
       - store_test_results:
           name: Store test results
           path: tmp/test-results
