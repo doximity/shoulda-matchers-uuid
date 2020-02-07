@@ -24,6 +24,21 @@ Metrics/MethodLength:
   Exclude:
     - "./**/*_spec*.rb"
 
+Metrics/AbcSize:
+  Max: 20
+Metrics/CyclomaticComplexity:
+  Max: 7
+Metrics/PerceivedComplexity:
+  Max: 8
+Metrics/MethodLength:
+  Max: 20
+
 Lint/AmbiguousBlockAssociation:
   Exclude:
     - ./**/*_spec.rb
+RSpec/BeforeAfterAll:
+  Enabled: false
+RSpec/FilePath:
+  Enabled: false
+Rails/ApplicationRecord:
+  Enabled: false

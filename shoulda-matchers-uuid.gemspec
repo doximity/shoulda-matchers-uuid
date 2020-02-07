@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["vstoll@doximity.com", "bsimpson@doximity.com"]
 
   spec.summary       = "Adds support for MYSQL uuids in shoulda-matchers context"
-  spec.description   = "shoulda-matchers does not currently support MYSQL uuid columns. This extends it to allow validating uuids in models."
+  spec.description   = "This extends shoulda-matchers to allow validating binary uuids in models."
   spec.homepage      = "https://github.com/doximity/shoulda-matchers-uuid"
 
   spec.metadata["homepage_uri"] = spec.homepage
