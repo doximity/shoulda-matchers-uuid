@@ -9,7 +9,7 @@ executors:
     docker:
       - image: circleci/ruby:2.6
         environment:
-          BUNDLE_VERSION: "~> 2.1.4"
+          BUNDLE_VERSION: "~> 1.17"
 
 # yaml anchor filters
 master_only: &master_only
