@@ -59,6 +59,12 @@ jobs:
       - run:
           name: Run Rubocop
           command: bundle exec rake ci:rubocop
+      - run:
+          name: Build documentation
+          command: bundle exec rake ci:doc
+      - store_artifacts:
+          name: Saves documentation
+          path: doc
       - persist_to_workspace:
           root: .
           paths:

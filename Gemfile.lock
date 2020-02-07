@@ -40,6 +40,7 @@ GEM
     rack (2.1.2)
     rainbow (3.0.0)
     rake (12.3.3)
+    rdoc (6.2.1)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
       rspec-expectations (~> 3.9.0)
@@ -53,6 +54,8 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
     rspec-support (3.9.2)
+    rspec_junit_formatter (0.4.1)
+      rspec-core (>= 2, < 4, != 2.12.0)
     rubocop (0.79.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
@@ -68,6 +71,8 @@ GEM
     rubocop-rspec (1.37.1)
       rubocop (>= 0.68.1)
     ruby-progressbar (1.10.1)
+    sdoc (1.0.0)
+      rdoc (>= 5.0)
     shoulda-matchers (4.2.0)
       activesupport (>= 4.2.0)
     thread_safe (0.3.6)
@@ -89,6 +94,8 @@ DEPENDENCIES
   mysql2
   rake
   rspec
+  rspec_junit_formatter
+  sdoc
   shoulda-matchers-uuid!
 
 BUNDLED WITH
