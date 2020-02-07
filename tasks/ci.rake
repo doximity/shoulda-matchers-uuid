@@ -6,7 +6,7 @@ namespace :ci do
     reports = "tmp/test-results/rspec"
     sh "mkdir -p #{reports}"
     sh "cp ./spec/support/database.yml.example ./spec/support/database.yml"
-    sh "echo '<%= ENV[\"DATABASE_URL\"] %>' >> ./spec/support/database.yml"
+    sh "echo 'url: <%= ENV[\"DATABASE_URL\"] %>' >> ./spec/support/database.yml"
     sh "bundle exec rspec ./spec " \
           "--format progress "\
           "--format RspecJunitFormatter " \
