@@ -6,6 +6,7 @@ require "shoulda/matchers"
 module ShouldaMatchersMysqlUuidFix
   extend ActiveSupport::Concern
 
+  # rubocop:disable Metrics/BlockLength
   included do
     def next_scalar_value_for(scope, previous_value)
       if uuid?(scope)
@@ -39,6 +40,7 @@ module ShouldaMatchersMysqlUuidFix
       model.attribute_types[scope.to_s]
     end
   end
+  # rubocop:enable Metrics/BlockLength
 end
 
-Shoulda::Matchers::ActiveRecord::ValidateUniquenessOfMatcher.public_send(:include, ShouldaMatchersMysqlUuidFix)
+Shoulda::Matchers::ActiveRecord::ValidateUniquenessOfMatcher.include ShouldaMatchersMysqlUuidFix

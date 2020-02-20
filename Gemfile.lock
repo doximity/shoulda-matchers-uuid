@@ -1,0 +1,104 @@
+PATH
+  remote: .
+  specs:
+    shoulda-matchers-uuid (0.1.1)
+      shoulda-matchers
+
+GEM
+  remote: https://artifacts.dox.support/repository/gems/
+  specs:
+    activemodel (6.0.2.1)
+      activesupport (= 6.0.2.1)
+    activerecord (6.0.2.1)
+      activemodel (= 6.0.2.1)
+      activesupport (= 6.0.2.1)
+    activesupport (6.0.2.1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 0.7, < 2)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+      zeitwerk (~> 2.2)
+    ast (2.4.0)
+    byebug (11.1.1)
+    concurrent-ruby (1.1.6)
+    diff-lcs (1.3)
+    dox-style (1.2.0)
+      rubocop (~> 0.77)
+      rubocop-performance (~> 1.5.1)
+      rubocop-rails (~> 2.2.0)
+      rubocop-rspec (~> 1.37.0)
+    i18n (1.8.2)
+      concurrent-ruby (~> 1.0)
+    jaro_winkler (1.5.4)
+    minitest (5.14.0)
+    mysql-binuuid-rails (1.2.1)
+      activerecord (>= 5)
+    mysql2 (0.5.3)
+    parallel (1.19.1)
+    parser (2.7.0.2)
+      ast (~> 2.4.0)
+    rack (2.2.2)
+    rainbow (3.0.0)
+    rake (13.0.1)
+    rdoc (6.2.1)
+    rexml (3.2.4)
+    rspec (3.9.0)
+      rspec-core (~> 3.9.0)
+      rspec-expectations (~> 3.9.0)
+      rspec-mocks (~> 3.9.0)
+    rspec-core (3.9.1)
+      rspec-support (~> 3.9.1)
+    rspec-expectations (3.9.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-mocks (3.9.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-support (3.9.2)
+    rspec_junit_formatter (0.4.1)
+      rspec-core (>= 2, < 4, != 2.12.0)
+    rubocop (0.80.0)
+      jaro_winkler (~> 1.5.1)
+      parallel (~> 1.10)
+      parser (>= 2.7.0.1)
+      rainbow (>= 2.2.2, < 4.0)
+      rexml
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 1.7)
+    rubocop-performance (1.5.2)
+      rubocop (>= 0.71.0)
+    rubocop-rails (2.2.1)
+      rack (>= 1.1)
+      rubocop (>= 0.72.0)
+    rubocop-rspec (1.37.1)
+      rubocop (>= 0.68.1)
+    ruby-progressbar (1.10.1)
+    sdoc (1.0.0)
+      rdoc (>= 5.0)
+    shoulda-matchers (4.3.0)
+      activesupport (>= 4.2.0)
+    thread_safe (0.3.6)
+    tzinfo (1.2.6)
+      thread_safe (~> 0.1)
+    unicode-display_width (1.6.1)
+    zeitwerk (2.2.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activemodel (> 5.0)
+  activerecord (> 4)
+  bundler
+  byebug
+  dox-style
+  mysql-binuuid-rails
+  mysql2
+  rake
+  rspec
+  rspec_junit_formatter
+  sdoc
+  shoulda-matchers-uuid!
+
+BUNDLED WITH
+   1.17.3

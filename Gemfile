@@ -1,12 +1,6 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
 
-# Specify your gem's dependencies in shoulda-matchers-uuid.gemspec
+# BEFORE changing this file, read https://wiki.doximity.com/articles/gemfile-maintenance
+source "https://artifacts.dox.support/repository/gems"
+
 gemspec
-
-gem "activemodel", "> 5.0"
-gem "activerecord", "> 4"
-gem "byebug"
-gem "mysql2"
-gem "mysql-binuuid-rails", require: false
-gem "rake", "~> 12.0"
-gem "rspec", "~> 3.0"
