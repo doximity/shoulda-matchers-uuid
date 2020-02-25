@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    shoulda-matchers-uuid (0.1.2.pre)
+    shoulda-matchers-uuid (0.1.2)
       shoulda-matchers
 
 GEM
