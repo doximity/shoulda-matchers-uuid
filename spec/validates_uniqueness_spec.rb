@@ -13,11 +13,16 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
-class CreateUserTable < ActiveRecord::Migration[5.2]
+class CreateUserAndFavoriteTables < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |table|
       table.binary :uuid
       table.string :name
+    end
+
+    create_table :favorites do |table|
+      table.integer :favoriteable_id, null: false
+      table.string :favoriteable_type, null: false
     end
   end
 end
@@ -29,6 +34,12 @@ class User < ActiveRecord::Base
   validates :name, uniqueness: { scope: :uuid }, allow_nil: true
 end
 
+class Favorite < ActiveRecord::Base
+  belongs_to :favoriteable, polymorphic: true
+  validates :favoriteable, presence: true
+  validates :favoriteable_id, uniqueness: { scope: :favoriteable_type }
+end
+
 RSpec.describe User, type: :model do
   include ExampleAppHelpers
 
@@ -38,7 +49,7 @@ RSpec.describe User, type: :model do
   end
 
   before(:all) do
-    setup_example_app(CreateUserTable)
+    setup_example_app(CreateUserAndFavoriteTables)
   end
 
   after(:all) do
@@ -53,5 +64,13 @@ RSpec.describe User, type: :model do
     expect(described_class.new(uuid: formerly_failing_uuid, name: "Shenanigans")).
       to validate_uniqueness_of(:name).
       scoped_to(:uuid).ignoring_case_sensitivity
+  end
+
+  it "correctly validates uniqueness of polymorphic attribute types" do
+    user_uuid = SecureRandom.uuid
+    user = described_class.create! uuid: user_uuid, name: "User #{user_uuid}"
+    Favorite.create! favoriteable: user
+
+    expect(Favorite.new).to validate_uniqueness_of(:favoriteable_id).scoped_to(:favoriteable_type)
   end
 end
