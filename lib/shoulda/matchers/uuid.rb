@@ -15,7 +15,7 @@ module ShouldaMatchersMysqlUuidFix
         available_values = available_enum_values_for(scope, previous_value)
         available_values.keys.last
       elsif polymorphic_type_attribute?(scope, previous_value)
-        Uniqueness::TestModels.create(previous_value).to_s
+        ::Shoulda::Matchers::ActiveRecord::Uniqueness::TestModels.create(previous_value).to_s
       elsif previous_value.respond_to?(:next)
         previous_value.next
       elsif previous_value.respond_to?(:to_datetime)
