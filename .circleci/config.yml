@@ -4,7 +4,7 @@ executors:
   ruby-latest:
     resource_class: small
     docker:
-      - image: circleci/ruby:2.6
+      - image: cimg/ruby:3.4
       - image: mysql:5.7
         command: ["--sql-mode="]
         environment:
@@ -36,6 +36,11 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install MySQL client libraries
+          command: |
+            sudo apt-get update -qq
+            sudo apt-get install -y --no-install-recommends default-libmysqlclient-dev default-mysql-client netcat-openbsd
+      - run:
           name: Install Bundler specific version
           command: |
             gem install bundler --version "${BUNDLE_VERSION}" --force
@@ -49,8 +54,7 @@ jobs:
       - run:
           name: Load mysql database from workspace
           command: |
-            apt-get update -qq && apt-get install -y --no-install-recommends mysql-client
-            until `nc -z 127.0.0.1 3306`; do
+            until nc -z 127.0.0.1 3306; do
             echo 'Waiting for MySQL container...'
               sleep 1
             done
