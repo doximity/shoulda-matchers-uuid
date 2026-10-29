@@ -145,4 +145,4 @@ DEPENDENCIES
   shoulda-matchers-uuid!
 
 BUNDLED WITH
-   2.4.3
+  4.0.23
