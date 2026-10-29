@@ -45,7 +45,7 @@ RSpec.describe User, type: :model do
 
   def formerly_failing_uuid
     uuid = SecureRandom.uuid
-    uuid.chop + "f"
+    "#{uuid.chop}f"
   end
 
   before(:all) do
