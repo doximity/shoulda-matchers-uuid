@@ -1,11 +1,13 @@
-require:
+plugins:
   - rubocop-rails
   - rubocop-rspec
 
 AllCops:
   Exclude:
     - "./vendor/**/*"
-  TargetRubyVersion: 2.6
+  TargetRubyVersion: 3.3
+  NewCops: disable
+  SuggestExtensions: false
 
 Layout/DotPosition:
   EnforcedStyle: trailing
@@ -48,7 +50,9 @@ RSpec/ExampleLength:
   Enabled: false
 RSpec/IteratedExpectation:
   Enabled: false
-RSpec/FilePath:
+RSpec/SpecFilePathFormat:
+  Enabled: false
+RSpec/SpecFilePathSuffix:
   Enabled: false
 RSpec/MultipleExpectations:
   Enabled: false
@@ -73,3 +77,9 @@ Style/StringLiterals:
   Enabled: true
 Style/StringLiteralsInInterpolation:
   EnforcedStyle: double_quotes
+
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+
+Rails/RakeEnvironment:
+  Enabled: false
