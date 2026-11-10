@@ -17,7 +17,7 @@ module ExampleAppHelpers
   end
 
   def establish_database_connection
-    ActiveRecord::Base.logger = ActiveSupport::Logger.new(STDOUT)
+    ActiveRecord::Base.logger = ActiveSupport::Logger.new($stdout)
     ActiveRecord::Base.establish_connection(database_configuration.except("database"))
     ActiveRecord::Base.connection.execute("CREATE DATABASE IF NOT EXISTS #{database_configuration["database"]}")
     ActiveRecord::Base.establish_connection(database_configuration)
